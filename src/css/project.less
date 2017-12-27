@@ -1,0 +1,116 @@
+.container img{
+	width:100%;
+}
+
+.specialhead-top{
+	font-size:14px;
+	color:#222;
+}
+
+.headline{
+	text-align:center;
+	margin-top:5%;
+
+	span{
+	font-family:@banner;
+	color:@redlinks;
+	}
+
+	h1{
+		font-size:50px;
+		text-transform:uppercase;
+		letter-spacing:1px;
+		line-height:1;
+		margin:0;
+
+		@media @tablet{
+			font-size:38px;
+		}
+	}
+
+	.byline{
+		font-size:16px;
+	}
+
+	.top-caption{
+		font-size:12px;
+		font-family:@med-graphics;
+		text-align:right;
+		padding-right:12px;
+		margin-bottom:4em;
+		line-height:1;
+	}
+}
+
+.tasting-notes{
+	text-align:center;
+	margin:1.5em auto;
+	text-transform:uppercase;
+	max-width: 750px;
+
+	span{
+		color:@redlinks;
+		font-size:11px;
+		font-family:@banner;
+		letter-spacing:1px;
+	}
+
+	h2{
+		line-height:1;
+		margin:0;
+		font-family:@bold-graphics;
+
+	}
+}
+
+.wine{
+	.display-flex;
+	.align-items(center);
+
+	@media @phone-horiz{
+		.flex-direction(column);
+	}
+}
+
+.bottle{
+	.flex(0 0 25%);
+	line-height:0;
+
+	@media @phone-horiz{
+		max-width:100px;
+	}
+}
+
+.notes{
+	padding:10px;
+	font-size:15px;
+	font-family:@med-graphics;
+	color:#000;
+
+	span{
+		text-transform:uppercase;
+		font-size:10px;
+		font-family:@banner;
+		color:@redlinks;
+		letter-spacing:1px;
+	}
+
+	.byline{
+		color:#333;
+		font-size:15px;
+		margin-top:1em;
+	}
+}
+
+#counter{
+	text-align:right;
+	font-size:14px;
+	font-family:@block-graphics;
+}
+.slideshow{
+	max-width: 750px;
+    margin: 0 auto 1em;
+}
+.slideshow-wrapper, .carousel-cell {
+  width: 100%;
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title><%= json.project.seo_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="__sync_contentCategory" content="meterA">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
+    <%= t.include("partials/_head.html") %>
+  </head>
+
+  <body>
+
+    <%= t.include("partials/_nav.html") %>
+    <% var data = json.woty %>
+
+    <div class="container">
+
+      <div class="headline">
+        <span>2017</span>
+        <h1><%= data.Headline %></h1>
+        <p class="deck">Dan Petroski of Larkmead Vineyards and Massican Winery</p>
+        <div class="byline">By Esther Mobley</div>
+        <div class="date">Dec. 29, 2017</div>
+        
+        <img src="http://ww2.hdnux.com/photos/70/06/54/14755492/3/1600x0.jpg">
+        <div class="top-caption">Photo: Mason Trinca, Special To The Chronicle</div>
+      </div>
+      
+      
+
+
+      <% data.text.forEach(function(txt) { %>
+        <p><%= txt.value %></p>
+      <% }); %>
+
+
+      <hr>
+      <div class="tasting-notes">
+        <span>Tasting Notes</span>
+        <h2>Larkmead</h2>
+      </div>
+
+      <div class="slideshow js-flickity">
+           
+
+             <div class="carousel-cell">
+              <div class="wine">
+                <div class="bottle">
+                  <img src="./assets/photos/notes1.jpg">
+                </div>
+                <div class="notes">
+                  <b>Cabernet Sauvignon Napa Valley 2014 (14.7%, $135)</b><br>Unlike the “black label” Cabernets made from individual parcels, this Cabernet is comprised of various sections of the Larkmead vineyard and is made in larger quantities. Brawny and powerful, walled by forceful tannins, it shows cherry, cola, tobacco and pencil lead flavors.<br>
+                  <div class="byline">–Esther Mobley</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-cell">
+              <div class="wine">
+                <div class="bottle">
+                  <img src="./assets/photos/notes1.jpg">
+                </div>
+                <div class="notes">
+                <b>Cabernet Sauvignon Napa Valley 2014 (14.7%, $135)</b><br>Unlike the “black label” Cabernets made from individual parcels, this Cabernet is comprised of various sections of the Larkmead vineyard and is made in larger quantities. Brawny and powerful, walled by forceful tannins, it shows cherry, cola, tobacco and pencil lead flavors.<br><div class="byline">–Esther Mobley</div></div>
+              </div>
+            </div>
+
+          </div>
+<p id="counter" class="carousel-status">f</p>
+          <hr>
+
+    </div>
+
+    <%= t.include("partials/_footer.html") %>
+<script>
+  var flkty = new Flickity('.slideshow', {
+    pageDots: false,
+    imagesLoaded: true
+});
+
+</script>
+    <script src="app.js" async></script>
+    <%= t.include("partials/_helloSFC.html") %>
+
+  </body>
+</html>
