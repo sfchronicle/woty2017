@@ -35,55 +35,93 @@
 
 
       <% data.text.forEach(function(txt) { %>
-        <p><%= txt.value %></p>
-      <% }); %>
+        
+        <% if ( txt.type == 'text' ){ %>
+          <p><%= txt.value %></p>
+      
+        <% } else if ( txt.type == 'infobox' ){ %>
+          <div id="infobox"><a href="">
+            <img src="http://ww2.hdnux.com/photos/70/06/54/14755513/3/900x0.jpg">
+            <p>Five wines that have most influenced Dan Petroski</p></a>
+        </div>
 
 
-      <hr>
-      <div class="tasting-notes">
-        <span>Tasting Notes</span>
-        <h2>Larkmead</h2>
-      </div>
-
-      <div class="slideshow js-flickity">
-           
-
-             <div class="carousel-cell">
-              <div class="wine">
-                <div class="bottle">
-                  <img src="./assets/photos/notes1.jpg">
-                </div>
-                <div class="notes">
-                  <b>Cabernet Sauvignon Napa Valley 2014 (14.7%, $135)</b><br>Unlike the “black label” Cabernets made from individual parcels, this Cabernet is comprised of various sections of the Larkmead vineyard and is made in larger quantities. Brawny and powerful, walled by forceful tannins, it shows cherry, cola, tobacco and pencil lead flavors.<br>
-                  <div class="byline">–Esther Mobley</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-cell">
-              <div class="wine">
-                <div class="bottle">
-                  <img src="./assets/photos/notes1.jpg">
-                </div>
-                <div class="notes">
-                <b>Cabernet Sauvignon Napa Valley 2014 (14.7%, $135)</b><br>Unlike the “black label” Cabernets made from individual parcels, this Cabernet is comprised of various sections of the Larkmead vineyard and is made in larger quantities. Brawny and powerful, walled by forceful tannins, it shows cherry, cola, tobacco and pencil lead flavors.<br><div class="byline">–Esther Mobley</div></div>
-              </div>
-            </div>
-
+        <% } else if ( txt.type == 'image' ){ %>
+         <div class="inline-img">
+            <img src="http://ww2.hdnux.com/photos/70/06/54/<%= txt.value[0].img %>/3/1000x0.jpg">
+            <div class="caption"><%= txt.value[0].caption %> <span class="byline"><%= txt.value[0].photographer %></span></div>
           </div>
-<p id="counter" class="carousel-status">f</p>
+      
+        
+
+
+        <% } else if ( txt.type == 'larkmead' ){  %>
+        <hr>
+        <div class="tasting-notes">
+          <span>Tasting Notes</span>
+          <h2>Larkmead</h2>
+        </div>
+        <div class="slideshow js-flickity">
+          <% txt.value.forEach(function(slide) { %>
+          <div class="carousel-cell">
+            <div class="wine">
+              <div class="bottle">
+                <img src="http://ww2.hdnux.com/photos/70/06/54/<%= slide.img %>/3/1000x0.jpg">
+              </div>
+              <div class="notes">
+                <b><%= slide.wine %></b><br>
+                <%= slide.text %><br>
+                <div class="byline">–Esther Mobley</div>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
           <hr>
+       
+
+
+        <% } else if ( txt.type == 'massican' ){  %>
+        <hr>
+        <div class="tasting-notes">
+          <span>Tasting Notes</span>
+          <h2>Massican</h2>
+        </div>
+        <div class="slideshow js-flickity">
+          <% txt.value.forEach(function(slide) { %>
+          <div class="carousel-cell">
+            <div class="wine">
+              <div class="bottle">
+                <img src="http://ww2.hdnux.com/photos/70/06/54/<%= slide.img %>/3/1000x0.jpg">
+              </div>
+              <div class="notes">
+                <b><%= slide.wine %></b><br>
+                <%= slide.text %><br>
+                <div class="byline">–Esther Mobley</div>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+        </div>
+          <hr>
+        <% } %>
+
+
+      <% }); %>
+           <hr>
+
 
     </div>
 
     <%= t.include("partials/_footer.html") %>
-<script>
-  var flkty = new Flickity('.slideshow', {
-    pageDots: false,
-    imagesLoaded: true
-});
-
-</script>
+    <script>
+      var flkty = new Flickity('.slideshow', {
+        imagesLoaded: true
+      });
+      var flkty = new Flickity('.slideshow', {
+        imagesLoaded: true
+      });
+    </script>
     <script src="app.js" async></script>
     <%= t.include("partials/_helloSFC.html") %>
 
