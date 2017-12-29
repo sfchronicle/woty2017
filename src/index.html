@@ -40,9 +40,9 @@
           <p><%= txt.value %></p>
       
         <% } else if ( txt.type == 'infobox' ){ %>
-          <div id="infobox"><a href="">
+          <div id="infobox"><a href="http://www.sfchronicle.com/wine/article/The-five-wines-that-changed-Dan-Petroski-s-life-12460104.php" target="_blank">
             <img src="http://ww2.hdnux.com/photos/70/06/54/14755513/3/900x0.jpg">
-            <p>Five wines that have most influenced Dan Petroski</p></a>
+            <p>The five wines that changed Dan Petroski's life</p></a>
         </div>
 
 
@@ -61,7 +61,7 @@
           <span>Tasting Notes</span>
           <h2>Larkmead</h2>
         </div>
-        <div class="slideshow js-flickity">
+        <div class="slideshow js-flickity" data-flickity='{ "imagesLoaded": true }'>
           <% txt.value.forEach(function(slide) { %>
           <div class="carousel-cell">
             <div class="wine">
@@ -87,13 +87,15 @@
           <span>Tasting Notes</span>
           <h2>Massican</h2>
         </div>
-        <div class="slideshow js-flickity">
+        <div class="slideshow js-flickity" data-flickity='{ "imagesLoaded": true }'>
           <% txt.value.forEach(function(slide) { %>
           <div class="carousel-cell">
             <div class="wine">
+              <% if (slide.img) { %>
               <div class="bottle">
                 <img src="http://ww2.hdnux.com/photos/70/06/54/<%= slide.img %>/3/1000x0.jpg">
               </div>
+              <% } %>
               <div class="notes">
                 <b><%= slide.wine %></b><br>
                 <%= slide.text %><br>
@@ -108,19 +110,26 @@
 
 
       <% }); %>
-           <hr>
 
+      <p class="credits"><i>Esther Mobley is The San Francisco Chronicle's wine, beer and spirits writer.<br>Email: <a href="mailto:emobley@sfchronicle.com"> emobley@sfchronicle.com</a> Twitter: <a href="https://twitter.com/Esther_mobley" target="_blank"> @Esther_mobley</a> Instagram: <a href="https://instagram.com/esthermob" target="_blank"> @esthermob</a></i></p>
+      <hr>
+      <div class="recirc">
+        <div class="story">
+          <a href="http://www.sfchronicle.com/2017/winemakers-to-watch/" target="_blank">
+            
+            <div class="story-img"><img src="http://ww2.hdnux.com/photos/70/06/54/14763636/4/rawImage.jpg"></div>
+            <div class="story-title">Winemakers to watch</div>
+            </a>
+            <p>The Chronicle's 2017 class of Winemakers to Watch is a group that will be influencing their industry for years to come – and all in different ways.</p>
+          
+        </div>
+      </div>
 
     </div>
 
     <%= t.include("partials/_footer.html") %>
     <script>
-      var flkty = new Flickity('.slideshow', {
-        imagesLoaded: true
-      });
-      var flkty = new Flickity('.slideshow', {
-        imagesLoaded: true
-      });
+       
     </script>
     <script src="app.js" async></script>
     <%= t.include("partials/_helloSFC.html") %>

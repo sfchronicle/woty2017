@@ -173,5 +173,43 @@
 }
 
 hr{
+	width:50%;
 	margin-bottom:2em;
+}
+p{
+
+ a{
+	color:@redlinks;
+
+		&:hover{
+			color:@redlinks;
+		}
+	}
+	
+	&.credits{
+		text-align:left;
+		max-width:700px;
+	}
+}
+
+.story{
+	max-width:400px;
+	margin:0 auto;
+
+	.story-title{
+		font-family:@med-graphics;
+		text-align:center;
+		text-transform:uppercase;
+		text-decoration:underline;
+	}
+	a{
+		color:#000;
+	
+		:hover{
+			color:@redlinks;
+		}
+	}
+	p{
+    font-size: 15px;
+	}
 }
